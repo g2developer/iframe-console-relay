@@ -1,5 +1,7 @@
 # iframe-console-relay
 
+[한국어 README 보기](./README.ko.md)
+
 Relay `console.*` messages from an iframe to the parent window using `postMessage`.
 
 Works entirely in the browser. The iframe wraps its `console` methods and posts structured log events to the parent, which can consume them and optionally forward to the parent's console.
@@ -56,6 +58,27 @@ const detach = attachIframeConsoleRelay({
 // detach();
 ```
 
+### UMD/CDN usage
+
+You can use the UMD bundle(s) directly from a CDN via `<script>` tags. The globals are:
+- `IframeConsoleRelay` (index): `{ relayConsoleToParent, attachIframeConsoleRelay }`
+- `IframeConsoleRelayIframe` (iframe-only): `{ relayConsoleToParent }`
+- `IframeConsoleRelayParent` (parent-only): `{ attachIframeConsoleRelay }`
+
+Example (index bundle):
+
+```html
+<script src="https://unpkg.com/iframe-console-relay/dist/index.umd.min.js"></script>
+<script>
+  // In iframe context
+  const stop = IframeConsoleRelay.relayConsoleToParent({ targetOrigin: 'https://parent.example.com' });
+
+  // In parent context
+  const detach = IframeConsoleRelay.attachIframeConsoleRelay({ allowedOrigins: ['https://child.example.com'] });
+  console.log('ready');
+</script>
+```
+
 ## API
 
 ### `relayConsoleToParent(options?: IframeRelayOptions): () => void`
@@ -99,4 +122,3 @@ Arguments are serialized in a safe, best-effort way (errors, functions, circular
 ## License
 
 MIT (set your preferred license before publishing)
-

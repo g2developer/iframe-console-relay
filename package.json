@@ -10,7 +10,15 @@
     "browser",
     "relay"
   ],
-  "author": "",
+  "author": "g2developer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g2developer/iframe-console-relay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/g2developer/iframe-console-relay/issues"
+  },
+  "homepage": "https://github.com/g2developer/iframe-console-relay#readme",
   "type": "module",
   "sideEffects": false,
   "exports": {
@@ -37,14 +45,21 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && npm run build:umd",
+    "build:umd": "rollup -c",
     "clean": "rimraf dist",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.24.0",
+    "rollup-plugin-esbuild": "^6.1.1",
     "tsup": "^8.1.0",
-    "typescript": "^5.6.3",
-    "rimraf": "^6.0.1"
-  }
+    "typescript": "^5.6.3"
+  },
+  "unpkg": "dist/index.umd.min.js",
+  "jsdelivr": "dist/index.umd.min.js",
+  "license": "MIT"
 }
-
