@@ -1,0 +1,50 @@
+{
+  "name": "iframe-console-relay",
+  "version": "0.1.0",
+  "description": "Relay console logs from an iframe to the parent window via postMessage.",
+  "keywords": [
+    "iframe",
+    "console",
+    "postMessage",
+    "logging",
+    "browser",
+    "relay"
+  ],
+  "author": "",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./iframe": {
+      "types": "./dist/iframe.d.ts",
+      "import": "./dist/iframe.mjs",
+      "require": "./dist/iframe.cjs"
+    },
+    "./parent": {
+      "types": "./dist/parent.d.ts",
+      "import": "./dist/parent.mjs",
+      "require": "./dist/parent.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.1.0",
+    "typescript": "^5.6.3",
+    "rimraf": "^6.0.1"
+  }
+}
+
