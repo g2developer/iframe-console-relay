@@ -121,4 +121,4 @@ Arguments are serialized in a safe, best-effort way (errors, functions, circular
 
 ## License
 
-MIT (set your preferred license before publishing)
+MIT

@@ -119,5 +119,5 @@ type RelayPayload = {
 
 ## 라이선스
 
-MIT (배포 전 원하시는 라이선스로 수정 가능)
+MIT
 
